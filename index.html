@@ -271,8 +271,7 @@
       </section>
 
       <div class="controls">
-        <button class="save-button ui-button" type="button" onclick="dialog.showModal()">
-          <svg class="ui-button__icon" width="21" height="21" viewBox="0 0 21 21" aria-hidden="true">
+        <button class="save-button ui-button" type="button" onclick="document.getElementById('dialog').showModal()">          <svg class="ui-button__icon" width="21" height="21" viewBox="0 0 21 21" aria-hidden="true">
             <use href="#floppy"></use>
           </svg>
           <span class="button__text">Сохранить на память</span>
@@ -286,11 +285,11 @@
         </svg>
         <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
       </div>
-      <div class="dialog__form">
-        <button class="dialog__button ui-button" type="button" onclick="this.closest('dialog').close()">
+      <form class="dialog__form" method="dialog">
+        <button class="dialog__button ui-button" type="submit" onclick="document.getElementById('dialog').close()">
           <span class="button__text">OK</span>
         </button>
-      </div>
+      </form>
     </dialog>
     <script src="./scripts/like.js"></script>
   </body>
