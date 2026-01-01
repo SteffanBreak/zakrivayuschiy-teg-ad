@@ -1,11 +1,78 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+.like-icon .core,
+.like-icon .main-body,
+.like-icon .contour {
+  transition: fill 0.3s ease;
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+.card__icon-button:hover .like-icon .core {
+  fill: var(--contour-color);
+  transition-delay: 0s;
+}
 
-*/
+.card__icon-button:hover .like-icon .main-body {
+  fill: var(--contour-color);
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:not(:hover) .like-icon .main-body {
+  transition-delay: 0s;
+}
+
+.card__icon-button:not(:hover) .like-icon .core {
+  transition-delay: 0.03s;
+}
+
+.card__icon-button:active .like-icon .core,
+.card__icon-button:active .like-icon .main-body {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-pop 0.3s ease-in 0.1s 1 both;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-show 0.3s ease-in 0.3s 1 both;
+}
+
+.like-icon:not(.is-liked) .contour {
+  transition: fill 0.1s linear;
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+  50% {
+    transform: scale(1.25);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+
+@keyframes sparks-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
